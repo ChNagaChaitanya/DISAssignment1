@@ -127,14 +127,14 @@ namespace DISAssignment1
             {
                 bool[] visited = new bool[bull_bucks.Length];
                 int sum = 0;
-                for (int i = 0; i < bull_bucks.Length; i++)
+                for (int i = 0; i < bull_bucks.Length; i++) //iterating loop to check if element is visited
                 {
-                    if (visited[i] == true)
+                    if (visited[i] == true) // making it true if visited
                         continue;
                     else
                     {
                         int count = 0;
-                        for (int j = i + 1; j < bull_bucks.Length; j++)
+                        for (int j = i + 1; j < bull_bucks.Length; j++) // iterating to add elements only if unique
                         {
                             if (bull_bucks[i] == bull_bucks[j])
                             {
