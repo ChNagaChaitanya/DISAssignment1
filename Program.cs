@@ -125,25 +125,30 @@ namespace DISAssignment1
         {
             try
             {
+                bool[] visited = new bool[bull_bucks.Length];
                 int sum = 0;
-                // sort all elements of array to make it easy
-                Array.Sort(bull_bucks);
-
-                // if first element is not same as second element then adding it to sum
-                if (bull_bucks[0] != bull_bucks[1])
-                    sum = sum + bull_bucks[0];
-
-                //iterating through the array 
-                for (int i = 0; i < bull_bucks.Length - 1; i++)
+                for (int i = 0; i < bull_bucks.Length; i++)
                 {
-                    if (bull_bucks[i] != bull_bucks[i + 1]) //checking if any element is same as next element
+                    if (visited[i] == true)
+                        continue;
+                    else
                     {
-                        sum = sum + bull_bucks[i + 1]; // adding it to sum if it is unique.
+                        int count = 0;
+                        for (int j = i + 1; j < bull_bucks.Length; j++)
+                        {
+                            if (bull_bucks[i] == bull_bucks[j])
+                            {
+                                visited[j] = true;
+                                count += 1;
+                            }
+                        }
+                        if (count < 1)
+                            sum += bull_bucks[i];
                     }
 
+                    
                 }
                 return sum;
-
 
 
             }
